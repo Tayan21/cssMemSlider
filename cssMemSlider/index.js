@@ -8,7 +8,8 @@ const button7 = document.querySelector('.button-7');
 const slider = document.querySelector('.slider-inner');
 const image = document.querySelector('img');
 const text = document.querySelector('.text');
-console.log(text);
+const button = document.querySelectorAll('.button');
+console.log(button);
 
 let images = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg'];
 let par = [
@@ -55,3 +56,20 @@ button7.addEventListener('click', () =>{
     image.src = images[6];
     text.innerHTML = par[6];
 });
+
+for (let i = 0; i < button.length; i++) {
+    button[i].addEventListener("mousedown", function(){
+        button[i].classList.add('mousedown');
+        console.log('mousedown');
+    });
+    button[i].addEventListener("mouseup", function(){
+        button[i].classList.remove('mousedown');
+        console.log('mouseup');
+    });
+    button[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+
+}
